@@ -1,5 +1,7 @@
 package ${contractPackageName};
 
+import android.app.Activity;
+
 import com.app.frame.mvp.IView;
 import com.app.frame.mvp.IModel;
 
@@ -8,6 +10,8 @@ import com.app.frame.mvp.IModel;
 public interface ${pageName}Contract {
 
     interface View extends IView {
+
+        Activity getActivity();
 
     }
 

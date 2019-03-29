@@ -5,6 +5,8 @@
 <#if needActivity>
     <merge from="root/AndroidManifest.xml.ftl"
            to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+    <merge from="root/AndroidManifest.xml.ftl"
+           to="${projectOut}/src/main/debug/AndroidManifest.xml" />
 </#if>
 
 <#if needActivity && generateActivityLayout>
@@ -54,4 +56,15 @@
 
 </#if>
 
+<#if needRecyclerView>
+    <instantiate from="root/src/app_package/ArmsAdapter.${ktOrJavaExt}.ftl"
+                 to="${projectOut}/src/main/java/${slashedPackageName(adapterPackageName)}/${pageName}Adapter.${ktOrJavaExt}" />
+    <open file="${projectOut}/src/main/java/${slashedPackageName(adapterPackageName)}/${pageName}Adapter.${ktOrJavaExt}" />
+    <instantiate from="root/src/app_package/ArmsHolder.${ktOrJavaExt}.ftl"
+                 to="${projectOut}/src/main/java/${slashedPackageName(holderPackageName)}/${pageName}Holder.${ktOrJavaExt}" />
+    <open file="${projectOut}/src/main/java/${slashedPackageName(holderPackageName)}/${pageName}Holder.${ktOrJavaExt}" />
+    <instantiate from="root/src/app_package/ArmsEntity.${ktOrJavaExt}.ftl"
+                 to="${projectOut}/src/main/java/${slashedPackageName(entityPackageName)}/${pageName}Entity.${ktOrJavaExt}" />
+    <open file="${projectOut}/src/main/java/${slashedPackageName(entityPackageName)}/${pageName}Entity.${ktOrJavaExt}" />
+</#if>
 </recipe>
