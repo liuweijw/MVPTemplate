@@ -40,7 +40,6 @@
 <#if needPresenter>
     <instantiate from="root/src/app_package/ArmsPresenter.${ktOrJavaExt}.ftl"
                    to="${projectOut}/src/main/java/${slashedPackageName(presenterPackageName)}/${pageName}Presenter.${ktOrJavaExt}" />
-    <open file="${projectOut}/src/main/java/${slashedPackageName(presenterPackageName)}/${pageName}Presenter.${ktOrJavaExt}" />
 </#if>
 
 <#if needModel>
@@ -59,12 +58,9 @@
 <#if needRecyclerView>
     <instantiate from="root/src/app_package/ArmsAdapter.${ktOrJavaExt}.ftl"
                  to="${projectOut}/src/main/java/${slashedPackageName(adapterPackageName)}/${pageName}Adapter.${ktOrJavaExt}" />
-    <open file="${projectOut}/src/main/java/${slashedPackageName(adapterPackageName)}/${pageName}Adapter.${ktOrJavaExt}" />
     <instantiate from="root/src/app_package/ArmsHolder.${ktOrJavaExt}.ftl"
                  to="${projectOut}/src/main/java/${slashedPackageName(holderPackageName)}/${pageName}Holder.${ktOrJavaExt}" />
-    <open file="${projectOut}/src/main/java/${slashedPackageName(holderPackageName)}/${pageName}Holder.${ktOrJavaExt}" />
     <instantiate from="root/src/app_package/ArmsEntity.${ktOrJavaExt}.ftl"
                  to="${projectOut}/src/main/java/${slashedPackageName(entityPackageName)}/${pageName}Entity.${ktOrJavaExt}" />
-    <open file="${projectOut}/src/main/java/${slashedPackageName(entityPackageName)}/${pageName}Entity.${ktOrJavaExt}" />
 </#if>
 </recipe>

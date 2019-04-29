@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 </#if>
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.commonres.dialog.WaitDialog;
+import com.app.commonsdk.core.RouterHub;
 <#if needFragment>
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -41,7 +42,7 @@ import static com.app.frame.utils.Preconditions.checkNotNull;
 
 <#import "root://activities/MVPArmsTemplate/globals.xml.ftl" as gb>
 <@gb.fileHeader />
-// @Route(path = "", name = "${pageName}")
+@Route(path = RouterHub.补充路由地址, name = "${pageName}")
 public class ${pageName}Activity extends BaseActivity<${pageName}Presenter> implements ${pageName}Contract.View {
     <#if needRecyclerView>
 
@@ -77,6 +78,7 @@ public class ${pageName}Activity extends BaseActivity<${pageName}Presenter> impl
     @Override
     public void initData(@Nullable Bundle savedInstanceState) {
         RouterHelper.inject(this);
+        ToolbarHelper.getInstance().buildToolbarWithAction(this, "${pageName}");
         <#if needRecyclerView>
         mAdapter = new ${pageName}Adapter(mDataList);
         ArmsUtils.configRecyclerView(mRecyclerView, mLayoutManager, mAdapter);
