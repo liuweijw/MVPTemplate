@@ -12,7 +12,7 @@ import com.app.frame.di.scope.FragmentScope;
 </#if>
 import com.app.frame.mvp.BasePresenter;
 import com.app.frame.http.imageloader.ImageLoader;
-import me.jessyan.rxerrorhandler.core.RxErrorHandler;
+import com.app.frame.rxerrorhandler.core.RxErrorHandler;
 import javax.inject.Inject;
 
 import ${contractPackageName}.${pageName}Contract;
